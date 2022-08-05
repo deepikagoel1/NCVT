@@ -8,11 +8,12 @@ st.title("NCVT MIS Dashboard")
 
 df = pd.read_csv(r'C:\Users\goeld\Downloads\NCVT_MIS_DASH\iti_trades.csv')
 
-# gb = GridOptionsBuilder.from_dataframe(df)
-# gb.configure_pagination(paginationAutoPageSize=True) #Add pagination
-# gb.configure_side_bar() #Add a sidebar
-# gb.configure_selection('multiple', use_checkbox=True, groupSelectsChildren="Group checkbox select children") #Enable multi-row selection
-# gridOptions = gb.build()
+gb = GridOptionsBuilder.from_dataframe(df)
+gb.configure_pagination(paginationAutoPageSize=True) #Add pagination
+gb.configure_default_column(editable = True, groupable = True)
+gb.configure_side_bar() #Add a sidebar
+gb.configure_selection('multiple', use_checkbox=True, groupSelectsChildren="Group checkbox select children") #Enable multi-row selection
+gridOptions = gb.build()
     
 placeholder = st.empty()
 
@@ -23,20 +24,7 @@ state = st.sidebar.multiselect("State",options = states)
 
 if state:
     df = df[df['State_Name'].isin(state)] 
-    # grid_response = AgGrid(
-    # df,
-    # gridOptions=gridOptions,
-    # data_return_mode='AS_INPUT', 
-    # update_mode='VALUE_CHANGED', 
-    # fit_columns_on_grid_load=False,
-    # theme='blue', #Add theme color to the table
-    # enable_enterprise_modules=True,
-    # height=350, 
-    # width='100%',
-    # reload_data=True
-    # )
-    # new_df = grid_response['data']
-    placeholder.write(df.reset_index())
+    
     # df = grid_response['data']
     # selected = grid_response['selected_rows'] 
     # df1 = pd.DataFrame(selected) #Pass the selected rows to a new dataframe df   
@@ -54,6 +42,19 @@ if district:
     # data_return_mode='AS_INPUT', 
     # update_mode='VALUE_CHANGED', 
     # fit_columns_on_grid_load=False,
+    # theme='fresh', #Add theme color to the table
+    # enable_enterprise_modules=True,
+    # allow_unsafe_jscode = True,
+    # height=600, 
+    # width='100%',
+    # reload_data=True
+    # )
+    # grid_response = AgGrid(
+    # df,
+    # gridOptions=gridOptions,
+    # data_return_mode='AS_INPUT', 
+    # update_mode='VALUE_CHANGED', 
+    # fit_columns_on_grid_load=False,
     # theme='blue', #Add theme color to the table
     # enable_enterprise_modules=True,
     # height=350, 
@@ -61,7 +62,7 @@ if district:
     # reload_data=True
     # )
     # new_df = grid_response['data']
-    placeholder.write(df.reset_index())
+    # placeholder.write(df.reset_index())
     # selected = grid_response['selected_rows'] 
     # df1 = pd.DataFrame(selected) #Pass the selected rows to a new dataframe df   
     # placeholder.dataframe(df1.reset_index())
@@ -101,7 +102,23 @@ iti_nsti = st.sidebar.multiselect('ITI/NSTI',options = iti_nstis)
 
 if iti_nsti:
     df = df[df['Details'].isin(iti_nsti)]
-    placeholder.dataframe(df.reset_index())
+    # placeholder.dataframe(df.reset_index())
+    
+grid_response = AgGrid(
+    df,
+    gridOptions=gridOptions,
+    data_return_mode='AS_INPUT', 
+    update_mode='VALUE_CHANGED', 
+    fit_columns_on_grid_load=True,
+    theme='fresh', #Add theme color to the table
+    enable_enterprise_modules=True,
+    allow_unsafe_jscode = True,
+    height=600, 
+    width='100%',
+    reload_data=True
+    )
+    # new_df = grid_response['data']
+    # placeholder.write(df.reset_index())
 
 
 def convert_df(df):
