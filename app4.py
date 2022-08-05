@@ -5,14 +5,19 @@ from st_aggrid import GridOptionsBuilder, AgGrid, GridUpdateMode, DataReturnMode
 
 st.title("NCVT MIS Dashboard")
 
+
 df = pd.read_csv(r'C:\Users\goeld\Downloads\NCVT_MIS_DASH\iti_trades.csv')
+
+left_column, middle_column, right_column = st.columns(3, gap = 'medium')
+
 
 placeholder = st.empty()    
 
-df1 = df[['Trade_Name', 'Course_Duration', 'ITI_Name', 'Year', 'ITI_Address', 'State_Name', 'District_Name', 'ITI_Category', 'Principal_Name', 'Principal_Email_id', 'Details']]
- 
+
 states = list(df['State_Name'].unique())
 state = st.sidebar.multiselect("State",options = states)
+
+
 if state:
     df = df[df['State_Name'].isin(state)] 
     placeholder.dataframe(df.reset_index())
@@ -61,13 +66,12 @@ if iti_nsti:
     df = df[df['Details'].isin(iti_nsti)]
     placeholder.dataframe(df.reset_index())
     
-left_column, middle_column, right_column = st.columns(3, gap = 'medium')
-
 total_seats = int(df["Totalseats"].sum())
 seats_available = int(df["SeatsAvailable"].sum())
 total_units = int(df["TotalUnits"].sum())
 units_available = int(df["UnitsAvailable"].sum())
 admissions = int(df["Admissions"].sum())
+
 
 with left_column:
     st.subheader("Total Seats")
@@ -82,7 +86,6 @@ with middle_column:
 with right_column:
     st.subheader("Admissions")
     st.subheader(f"{admissions}")
-
 
 def convert_df(df):
        return df.to_csv().encode('utf-8')
