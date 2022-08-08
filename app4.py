@@ -6,7 +6,7 @@ from streamlit_card import card
 
 @st.cache
 def data_upload():
-    df = pd.read_csv(r'C:\Users\goeld\Downloads\NCVT_MIS_DASH\iti_trades.csv')
+    df = pd.read_csv(r'iti_trades.csv')
     return df
 
 st.set_page_config(
@@ -16,7 +16,6 @@ st.set_page_config(
 )
 
 st.title("NCVT MIS Dashboard")
-
 df = data_upload()
 
 gb = GridOptionsBuilder.from_dataframe(df)
