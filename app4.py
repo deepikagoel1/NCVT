@@ -1,6 +1,5 @@
 import streamlit as st
 import pandas as pd
-import time
 from st_aggrid import GridOptionsBuilder, AgGrid, GridUpdateMode, DataReturnMode, JsCode
 from streamlit_card import card
 
@@ -181,6 +180,7 @@ total_units = int(df["TotalUnits"].sum())
 units_available = int(df["UnitsAvailable"].sum())
 admissions = int(df["Admissions"].sum())
 num_itis = int(df['ITI_Name'].nunique())
+num_trades = int(df['Trade_Name'].nunique())
 
 
 
@@ -215,6 +215,7 @@ with cols[0]:
                         margin-top: 0;'>{sline}</style></span></p>"""
 
     st.markdown(htmlstr, unsafe_allow_html=True)
+    
     wch_colour_box = (0,204,102)
     wch_colour_font = (0,0,0)
     fontsize = 18
@@ -243,6 +244,32 @@ with cols[0]:
     st.markdown(htmlstr, unsafe_allow_html=True)
     # card("Total Seats", f"{total_seats}")
     # card("Seats Available", f"{seats_available}")
+    wch_colour_box = (0,204,102)
+    wch_colour_font = (0,0,0)
+    fontsize = 18
+    valign = "left"
+    iconname = "fas fa-asterisk"
+    sline = "Number of Trades"
+    # lnk = '<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">'
+    i = f"{num_trades}"
+
+    htmlstr = f"""<p style='background-color: rgb({wch_colour_box[0]}, 
+                                              {wch_colour_box[1]}, 
+                                              {wch_colour_box[2]}, 0.75); 
+                        color: rgb({wch_colour_font[0]}, 
+                                   {wch_colour_font[1]}, 
+                                   {wch_colour_font[2]}, 0.75); 
+                        font-size: {fontsize}px; 
+                        border-radius: 7px; 
+                        padding-left: 12px; 
+                        padding-top: 18px; 
+                        padding-bottom: 18px; 
+                        line-height:25px;'>
+                        <i class='{iconname} fa-xs'></i> {i}
+                        </style><BR><span style='font-size: 14px; 
+                        margin-top: 0;'>{sline}</style></span></p>"""
+
+    st.markdown(htmlstr, unsafe_allow_html=True)
     
 with cols[1]:
     # st.subheader("Total Units")
