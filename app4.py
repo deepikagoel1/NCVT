@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 from st_aggrid import GridOptionsBuilder, AgGrid, GridUpdateMode, DataReturnMode, JsCode
-from streamlit_card import card
+# from streamlit_card import card
 
 
 @st.cache
