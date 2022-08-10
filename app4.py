@@ -54,7 +54,7 @@ trades_names = list(df['Trade_Name'].unique())
 trade_name = st.sidebar.multiselect("Trade Name",options = trades_names)
 
 with placeholder:
-    if state:
+    if trade_name:
         df = df[df['Trade_Name'].isin(trade_name)] 
         # placeholder.dataframe(df.reset_index())
         AgGrid(df,
