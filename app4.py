@@ -39,7 +39,7 @@ with placeholder:
         df = df[df['State_Name'].isin(state)] 
         # placeholder.dataframe(df.reset_index())
         AgGrid(df,
-    gridOptions=gridOptions,
+    # gridOptions=gridOptions,
     data_return_mode='AS_INPUT', 
     update_mode='NO_UPDATE', 
     fit_columns_on_grid_load=False,
@@ -47,7 +47,7 @@ with placeholder:
     enable_enterprise_modules=True,
     height=350, 
     width='100%',
-    reload_data=False
+    # reload_data=False
     ) 
         
 trades_names = list(df['Trade_Name'].unique())
@@ -58,7 +58,7 @@ with placeholder:
         df = df[df['Trade_Name'].isin(trade_name)] 
         # placeholder.dataframe(df.reset_index())
         AgGrid(df,
-    gridOptions=gridOptions,
+    # gridOptions=gridOptions,
     data_return_mode='AS_INPUT', 
     update_mode='NO_UPDATE', 
     fit_columns_on_grid_load=False,
@@ -66,7 +66,7 @@ with placeholder:
     enable_enterprise_modules=True,
     height=350, 
     width='100%',
-    reload_data=False
+    # reload_data=False
     ) 
 
 districts = list(df['District_Name'].unique())
@@ -77,7 +77,7 @@ with placeholder:
         df = df[df['District_Name'].isin(district)]
         # placeholder.dataframe(df.reset_index())
         AgGrid(df,
-    gridOptions=gridOptions,
+    # gridOptions=gridOptions,
     data_return_mode='AS_INPUT', 
     update_mode='NO_UPDATE', 
     fit_columns_on_grid_load=False,
@@ -85,7 +85,7 @@ with placeholder:
     enable_enterprise_modules=True,
     height=350, 
     width='100%',
-    reload_data=False
+    # reload_data=False
     )    
         # placeholder.dataframe(grid_table)
     
@@ -99,7 +99,7 @@ with placeholder:
         df = df[df['Course_Duration'].isin(duration)]
         # placeholder.dataframe(df.reset_index())
         AgGrid(df,
-    gridOptions=gridOptions,
+    # gridOptions=gridOptions,
     data_return_mode='AS_INPUT', 
     update_mode='NO_UPDATE', 
     fit_columns_on_grid_load=False,
@@ -107,7 +107,7 @@ with placeholder:
     enable_enterprise_modules=True,
     height=350, 
     width='100%',
-    reload_data=False
+    # reload_data=False
     ) 
         # placeholder.dataframe(grid_table)
     
@@ -120,7 +120,7 @@ with placeholder:
         df = df[df['Year'].isin(year)]
         # placeholder.dataframe(df.reset_index())
         AgGrid(df,
-    gridOptions=gridOptions,
+    # gridOptions=gridOptions,
     data_return_mode='AS_INPUT', 
     update_mode='NO_UPDATE', 
     fit_columns_on_grid_load=False,
@@ -128,7 +128,7 @@ with placeholder:
     enable_enterprise_modules=True,
     height=350, 
     width='100%',
-    reload_data=False
+    # reload_data=False
     )   
         # placeholder.dataframe(grid_table)
     
@@ -140,7 +140,7 @@ with placeholder:
         df = df[df['ITI_Name'].isin(iti_name)]
         # placeholder.dataframe(df.reset_index())
         AgGrid(df,
-    gridOptions=gridOptions,
+    # gridOptions=gridOptions,
     data_return_mode='AS_INPUT', 
     update_mode='NO_UPDATE', 
     fit_columns_on_grid_load=False,
@@ -148,7 +148,7 @@ with placeholder:
     enable_enterprise_modules=True,
     height=350, 
     width='100%',
-    reload_data=False
+    # reload_data=False
     )   
         # placeholder.dataframe(grid_table)
     
@@ -160,7 +160,7 @@ with placeholder:
         df = df[df['ITI_Category'].isin(iti_category)]
         # placeholder.dataframe(df.reset_index())
         AgGrid(df,
-    gridOptions=gridOptions,
+    # gridOptions=gridOptions,
     data_return_mode='AS_INPUT', 
     update_mode='NO_UPDATE', 
     fit_columns_on_grid_load=False,
@@ -168,7 +168,7 @@ with placeholder:
     enable_enterprise_modules=True,
     height=350, 
     width='100%',
-    reload_data=False
+    # reload_data=False
     ) 
         # placeholder.dataframe(grid_table)
     
