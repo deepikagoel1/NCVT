@@ -30,29 +30,8 @@ cols = st.columns([.333, .333, .333])
 
 placeholder = st.empty()    
 
-
-states = list(df['State_Name'].unique())
-state = st.sidebar.multiselect("State",options = states, key = 1)
-
-with placeholder:
-    if state:
-        df = df[df['State_Name'].isin(state)] 
-        # placeholder.dataframe(df.reset_index())
-        AgGrid(df,
-    gridOptions=gridOptions,
-    data_return_mode='AS_INPUT', 
-    update_mode='SELECTION_CHANGED', 
-    fit_columns_on_grid_load=False,
-    theme='blue', #Add theme color to the table
-    enable_enterprise_modules=True,
-    height=350, 
-    width='100%',
-    reload_data=True,
-    key = 1
-    ) 
-        
 trades_names = list(df['Trade_Name'].unique())
-trade_name = st.sidebar.multiselect("Trade Name",options = trades_names, key =2)
+trade_name = st.sidebar.multiselect("Trade Name",options = trades_names, key =1)
 
 with placeholder:
     if trade_name:
@@ -68,8 +47,30 @@ with placeholder:
     height=350, 
     width='100%',
     reload_data=True,
+    key = 1
+    ) 
+
+
+states = list(df['State_Name'].unique())
+state = st.sidebar.multiselect("State",options = states, key = 2)
+
+with placeholder:
+    if state:
+        df = df[df['State_Name'].isin(state)] 
+        # placeholder.dataframe(df.reset_index())
+        AgGrid(df,
+    gridOptions=gridOptions,
+    data_return_mode='AS_INPUT', 
+    update_mode='SELECTION_CHANGED', 
+    fit_columns_on_grid_load=False,
+    theme='blue', #Add theme color to the table
+    enable_enterprise_modules=True,
+    height=350, 
+    width='100%',
+    reload_data=True,
     key = 2
     ) 
+        
 
 districts = list(df['District_Name'].unique())
 district = st.sidebar.multiselect("District",options = districts, key =3)
