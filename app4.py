@@ -21,8 +21,8 @@ df = data_upload()
 gb = GridOptionsBuilder.from_dataframe(df)
 gb.configure_pagination(paginationAutoPageSize=True) #Add pagination
 gb.configure_default_column(editable = True, groupable = True)
-gb.configure_side_bar() #Add a sidebar
-gb.configure_selection('multiple', use_checkbox=True, groupSelectsChildren="Group checkbox select children") #Enable multi-row selection
+# gb.configure_side_bar() #Add a sidebar
+# gb.configure_selection('multiple', use_checkbox=True, groupSelectsChildren="Group checkbox select children") #Enable multi-row selection
 gridOptions = gb.build()
 
 cols = st.columns([.333, .333, .333])
