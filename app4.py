@@ -21,8 +21,8 @@ df = data_upload()
 gb = GridOptionsBuilder.from_dataframe(df)
 gb.configure_pagination(paginationAutoPageSize=True) #Add pagination
 gb.configure_default_column(editable = True, groupable = True)
-# gb.configure_side_bar() #Add a sidebar
-# gb.configure_selection('multiple', use_checkbox=True, groupSelectsChildren="Group checkbox select children") #Enable multi-row selection
+gb.configure_side_bar() #Add a sidebar
+gb.configure_selection('multiple', use_checkbox=True, groupSelectsChildren="Group checkbox select children") #Enable multi-row selection
 gridOptions = gb.build()
 
 cols = st.columns([.333, .333, .333])
@@ -32,65 +32,65 @@ placeholder = st.empty()
 
 
 states = list(df['State_Name'].unique())
-state = st.sidebar.multiselect("State",options = states)
+state = st.sidebar.multiselect("State",options = states, key = 1)
 
 with placeholder:
     if state:
         df = df[df['State_Name'].isin(state)] 
         # placeholder.dataframe(df.reset_index())
         AgGrid(df,
-    # gridOptions=gridOptions,
+    gridOptions=gridOptions,
     data_return_mode='AS_INPUT', 
-    update_mode='NO_UPDATE', 
+    update_mode='SELECTION_CHANGED', 
     fit_columns_on_grid_load=False,
     theme='blue', #Add theme color to the table
     enable_enterprise_modules=True,
     height=350, 
     width='100%',
-    # reload_data=False
+    reload_data=True
     ) 
         
 trades_names = list(df['Trade_Name'].unique())
-trade_name = st.sidebar.multiselect("Trade Name",options = trades_names)
+trade_name = st.sidebar.multiselect("Trade Name",options = trades_names, key =2)
 
 with placeholder:
     if trade_name:
         df = df[df['Trade_Name'].isin(trade_name)] 
         # placeholder.dataframe(df.reset_index())
         AgGrid(df,
-    # gridOptions=gridOptions,
+    gridOptions=gridOptions,
     data_return_mode='AS_INPUT', 
-    update_mode='NO_UPDATE', 
+    update_mode='SELECTION_CHANGED', 
     fit_columns_on_grid_load=False,
     theme='blue', #Add theme color to the table
     enable_enterprise_modules=True,
     height=350, 
     width='100%',
-    # reload_data=False
+    reload_data=True
     ) 
 
 districts = list(df['District_Name'].unique())
-district = st.sidebar.multiselect("District",options = districts)
+district = st.sidebar.multiselect("District",options = districts, key =3)
 
 with placeholder:
     if district:
         df = df[df['District_Name'].isin(district)]
         # placeholder.dataframe(df.reset_index())
         AgGrid(df,
-    # gridOptions=gridOptions,
+    gridOptions=gridOptions,
     data_return_mode='AS_INPUT', 
-    update_mode='NO_UPDATE', 
+    update_mode='SELECTION_CHANGED', 
     fit_columns_on_grid_load=False,
     theme='blue', #Add theme color to the table
     enable_enterprise_modules=True,
     height=350, 
     width='100%',
-    # reload_data=False
+    reload_data=True
     )    
         # placeholder.dataframe(grid_table)
     
 durations = list(df['Course_Duration'].unique())
-duration = st.sidebar.multiselect("Course Duration",options = durations)
+duration = st.sidebar.multiselect("Course Duration",options = durations, key = 4)
 
 
 with placeholder:
@@ -99,20 +99,20 @@ with placeholder:
         df = df[df['Course_Duration'].isin(duration)]
         # placeholder.dataframe(df.reset_index())
         AgGrid(df,
-    # gridOptions=gridOptions,
+    gridOptions=gridOptions,
     data_return_mode='AS_INPUT', 
-    update_mode='NO_UPDATE', 
+    update_mode='SELECTION_CHANGED', 
     fit_columns_on_grid_load=False,
     theme='blue', #Add theme color to the table
     enable_enterprise_modules=True,
     height=350, 
     width='100%',
-    # reload_data=False
+    reload_data=True
     ) 
         # placeholder.dataframe(grid_table)
     
 years = list(df['Year'].unique())
-year = st.sidebar.multiselect('Year',options = years)
+year = st.sidebar.multiselect('Year',options = years, key = 5)
 
 
 with placeholder:
@@ -120,55 +120,55 @@ with placeholder:
         df = df[df['Year'].isin(year)]
         # placeholder.dataframe(df.reset_index())
         AgGrid(df,
-    # gridOptions=gridOptions,
+    gridOptions=gridOptions,
     data_return_mode='AS_INPUT', 
-    update_mode='NO_UPDATE', 
+    update_mode='SELECTION_CHANGED', 
     fit_columns_on_grid_load=False,
     theme='blue', #Add theme color to the table
     enable_enterprise_modules=True,
     height=350, 
     width='100%',
-    # reload_data=False
+    reload_data=True
     )   
         # placeholder.dataframe(grid_table)
     
 iti_names = list(df['ITI_Name'].unique())
-iti_name = st.sidebar.multiselect('ITI Name',options = iti_names)
+iti_name = st.sidebar.multiselect('ITI Name',options = iti_names, key = 6)
 
 with placeholder:
     if iti_name:
         df = df[df['ITI_Name'].isin(iti_name)]
         # placeholder.dataframe(df.reset_index())
         AgGrid(df,
-    # gridOptions=gridOptions,
+    gridOptions=gridOptions,
     data_return_mode='AS_INPUT', 
-    update_mode='NO_UPDATE', 
+    update_mode='SELECTION_CHANGED', 
     fit_columns_on_grid_load=False,
     theme='blue', #Add theme color to the table
     enable_enterprise_modules=True,
     height=350, 
     width='100%',
-    # reload_data=False
+    reload_data=True
     )   
         # placeholder.dataframe(grid_table)
     
 iti_categories = list(df['ITI_Category'].unique())
-iti_category = st.sidebar.multiselect('ITI Category',options = iti_categories)
+iti_category = st.sidebar.multiselect('ITI Category',options = iti_categories, key = 7)
 
 with placeholder:
     if iti_category:
         df = df[df['ITI_Category'].isin(iti_category)]
         # placeholder.dataframe(df.reset_index())
         AgGrid(df,
-    # gridOptions=gridOptions,
+    gridOptions=gridOptions,
     data_return_mode='AS_INPUT', 
-    update_mode='NO_UPDATE', 
+    update_mode='SELECTION_CHANGED', 
     fit_columns_on_grid_load=False,
     theme='blue', #Add theme color to the table
     enable_enterprise_modules=True,
     height=350, 
     width='100%',
-    # reload_data=False
+    reload_data=True
     ) 
         # placeholder.dataframe(grid_table)
     
@@ -182,13 +182,13 @@ with placeholder:
 #         AgGrid(df,
 #     gridOptions=gridOptions,
 #     data_return_mode='AS_INPUT', 
-#     update_mode='NO_UPDATE', 
+#     update_mode='SELECTION_CHANGED', 
 #     fit_columns_on_grid_load=False,
 #     theme='blue', #Add theme color to the table
 #     enable_enterprise_modules=True,
 #     height=350, 
 #     width='100%',
-#     reload_data=False
+#     reload_data=True
 #     )  
         # placeholder.dataframe(grid_table)
     
