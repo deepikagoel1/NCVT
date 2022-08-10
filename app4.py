@@ -32,6 +32,7 @@ placeholder = st.empty()
 
 trades_names = list(df['Trade_Name'].unique())
 trade_name = st.sidebar.multiselect("Trade Name",options = trades_names, key =1)
+st.write('Trade Name selected as', trade_name)
 
 with placeholder:
     if trade_name:
@@ -49,10 +50,53 @@ with placeholder:
     reload_data=True,
     key = 1
     ) 
+        
+sector_names = list(df['Sector_Name'].unique())
+sector_name = st.sidebar.multiselect("Sector Name",options = sector_names, key = 2)
+st.write('Sector Name selected as', sector_name)
+
+with placeholder:
+    if sector_name:
+        df = df[df['Sector_Name'].isin(sector_name)] 
+        # placeholder.dataframe(df.reset_index())
+        AgGrid(df,
+    gridOptions=gridOptions,
+    data_return_mode='AS_INPUT', 
+    update_mode='SELECTION_CHANGED', 
+    fit_columns_on_grid_load=False,
+    theme='blue', #Add theme color to the table
+    enable_enterprise_modules=True,
+    height=350, 
+    width='100%',
+    reload_data=True,
+    key = 2
+    ) 
+        
+trade_types = list(df['Trade_Type'].unique())
+trade_type = st.sidebar.multiselect("Trade Type",options = trade_types, key = 3)
+st.write('Trade Type selected as', trade_type)
+
+with placeholder:
+    if trade_type:
+        df = df[df['Trade_Type'].isin(trade_type)] 
+        # placeholder.dataframe(df.reset_index())
+        AgGrid(df,
+    gridOptions=gridOptions,
+    data_return_mode='AS_INPUT', 
+    update_mode='SELECTION_CHANGED', 
+    fit_columns_on_grid_load=False,
+    theme='blue', #Add theme color to the table
+    enable_enterprise_modules=True,
+    height=350, 
+    width='100%',
+    reload_data=True,
+    key = 3
+    ) 
+
 
 
 states = list(df['State_Name'].unique())
-state = st.sidebar.multiselect("State",options = states, key = 2)
+state = st.sidebar.multiselect("State",options = states, key = 4)
 st.write('State Name selected as', state)
 with placeholder:
     if state:
@@ -68,13 +112,13 @@ with placeholder:
     height=350, 
     width='100%',
     reload_data=True,
-    key = 2
+    key = 4
     ) 
     
         
 
 districts = list(df['District_Name'].unique())
-district = st.sidebar.multiselect("District",options = districts, key =3)
+district = st.sidebar.multiselect("District",options = districts, key = 5)
 st.write('District Name selected as', district)
 with placeholder:
     if district:
@@ -90,12 +134,12 @@ with placeholder:
     height=350, 
     width='100%',
     reload_data=True,
-    key = 3
+    key = 5
     )    
         # placeholder.dataframe(grid_table)
     
 durations = list(df['Course_Duration'].unique())
-duration = st.sidebar.multiselect("Course Duration",options = durations, key = 4)
+duration = st.sidebar.multiselect("Course Duration",options = durations, key = 6)
 st.write('Course Duration selected as', duration)
 
 with placeholder:
@@ -113,12 +157,12 @@ with placeholder:
     height=350, 
     width='100%',
     reload_data=True, 
-    key=4
+    key=6
     ) 
         # placeholder.dataframe(grid_table)
     
 years = list(df['Year'].unique())
-year = st.sidebar.multiselect('Year',options = years, key = 5)
+year = st.sidebar.multiselect('Year',options = years, key = 7)
 
 st.write('Admitted Year Selected as', year)
 
@@ -136,12 +180,12 @@ with placeholder:
     height=350, 
     width='100%',
     reload_data=True,
-    key = 5
+    key = 7
     )   
         # placeholder.dataframe(grid_table)
     
 iti_names = list(df['ITI_Name'].unique())
-iti_name = st.sidebar.multiselect('ITI Name',options = iti_names, key = 6)
+iti_name = st.sidebar.multiselect('ITI Name',options = iti_names, key = 8)
 
 st.write('ITI Name selected as', iti_name)
 
@@ -159,12 +203,12 @@ with placeholder:
     height=350, 
     width='100%',
     reload_data=True,
-    key = 6
+    key = 8
     )   
         # placeholder.dataframe(grid_table)
     
 iti_categories = list(df['ITI_Category'].unique())
-iti_category = st.sidebar.multiselect('ITI Category',options = iti_categories, key = 7)
+iti_category = st.sidebar.multiselect('ITI Category',options = iti_categories, key = 9)
 
 st.write('ITI Category selected as', iti_category)
 
@@ -182,7 +226,7 @@ with placeholder:
     height=350, 
     width='100%',
     reload_data=True,
-    key =7
+    key =9
     ) 
         # placeholder.dataframe(grid_table)
     
@@ -213,7 +257,7 @@ units_available = int(df["UnitsAvailable"].sum())
 admissions = int(df["Admissions"].sum())
 num_itis = int(df['ITI_Name'].nunique())
 num_trades = int(df['Trade_Name'].nunique())
-
+women_itis = int(df['Women_ITIs'].nunique())
 
 
 with cols[0]:
@@ -364,6 +408,60 @@ with cols[1]:
 
     st.markdown(htmlstr, unsafe_allow_html=True)
     
+    wch_colour_box = (0,204,102)
+    wch_colour_font = (0,0,0)
+    fontsize = 18
+    valign = "left"
+    iconname = "fas fa-asterisk"
+    sline = "Total Units"
+    # lnk = '<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">'
+    i = f"{total_units}"
+
+    htmlstr = f"""<p style='background-color: rgb({wch_colour_box[0]}, 
+                                              {wch_colour_box[1]}, 
+                                              {wch_colour_box[2]}, 0.75); 
+                        color: rgb({wch_colour_font[0]}, 
+                                   {wch_colour_font[1]}, 
+                                   {wch_colour_font[2]}, 0.75); 
+                        font-size: {fontsize}px; 
+                        border-radius: 7px; 
+                        padding-left: 12px; 
+                        padding-top: 18px; 
+                        padding-bottom: 18px; 
+                        line-height:25px;'>
+                        <i class='{iconname} fa-xs'></i> {i}
+                        </style><BR><span style='font-size: 14px; 
+                        margin-top: 0;'>{sline}</style></span></p>"""
+
+    st.markdown(htmlstr, unsafe_allow_html=True)
+    
+    wch_colour_box = (0,204,102)
+    wch_colour_font = (0,0,0)
+    fontsize = 18
+    valign = "left"
+    iconname = "fas fa-asterisk"
+    sline = "Number of Women ITI"
+    # lnk = '<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">'
+    i = f"{women_itis}"
+
+    htmlstr = f"""<p style='background-color: rgb({wch_colour_box[0]}, 
+                                              {wch_colour_box[1]}, 
+                                              {wch_colour_box[2]}, 0.75); 
+                        color: rgb({wch_colour_font[0]}, 
+                                   {wch_colour_font[1]}, 
+                                   {wch_colour_font[2]}, 0.75); 
+                        font-size: {fontsize}px; 
+                        border-radius: 7px; 
+                        padding-left: 12px; 
+                        padding-top: 18px; 
+                        padding-bottom: 18px; 
+                        line-height:25px;'>
+                        <i class='{iconname} fa-xs'></i> {i}
+                        </style><BR><span style='font-size: 14px; 
+                        margin-top: 0;'>{sline}</style></span></p>"""
+
+    st.markdown(htmlstr, unsafe_allow_html=True)
+
     
 with cols[2]:
     # st.subheader("Admissions")
