@@ -53,7 +53,7 @@ with placeholder:
 
 states = list(df['State_Name'].unique())
 state = st.sidebar.multiselect("State",options = states, key = 2)
-
+st.write('State Name selected as', state)
 with placeholder:
     if state:
         df = df[df['State_Name'].isin(state)] 
@@ -70,11 +70,12 @@ with placeholder:
     reload_data=True,
     key = 2
     ) 
+    
         
 
 districts = list(df['District_Name'].unique())
 district = st.sidebar.multiselect("District",options = districts, key =3)
-
+st.write('District Name selected as', district)
 with placeholder:
     if district:
         df = df[df['District_Name'].isin(district)]
@@ -95,7 +96,7 @@ with placeholder:
     
 durations = list(df['Course_Duration'].unique())
 duration = st.sidebar.multiselect("Course Duration",options = durations, key = 4)
-
+st.write('Course Duration selected as', duration)
 
 with placeholder:
     if duration:
@@ -119,6 +120,7 @@ with placeholder:
 years = list(df['Year'].unique())
 year = st.sidebar.multiselect('Year',options = years, key = 5)
 
+st.write('Admitted Year Selected as', year)
 
 with placeholder:
     if year:
@@ -141,6 +143,8 @@ with placeholder:
 iti_names = list(df['ITI_Name'].unique())
 iti_name = st.sidebar.multiselect('ITI Name',options = iti_names, key = 6)
 
+st.write('ITI Name selected as', iti_name)
+
 with placeholder:
     if iti_name:
         df = df[df['ITI_Name'].isin(iti_name)]
@@ -161,6 +165,8 @@ with placeholder:
     
 iti_categories = list(df['ITI_Category'].unique())
 iti_category = st.sidebar.multiselect('ITI Category',options = iti_categories, key = 7)
+
+st.write('ITI Category selected as', iti_category)
 
 with placeholder:
     if iti_category:
