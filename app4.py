@@ -47,7 +47,8 @@ with placeholder:
     enable_enterprise_modules=True,
     height=350, 
     width='100%',
-    reload_data=True
+    reload_data=True,
+    key = 1
     ) 
         
 trades_names = list(df['Trade_Name'].unique())
@@ -66,7 +67,8 @@ with placeholder:
     enable_enterprise_modules=True,
     height=350, 
     width='100%',
-    reload_data=True
+    reload_data=True,
+    key = 2
     ) 
 
 districts = list(df['District_Name'].unique())
@@ -85,7 +87,8 @@ with placeholder:
     enable_enterprise_modules=True,
     height=350, 
     width='100%',
-    reload_data=True
+    reload_data=True,
+    key = 3
     )    
         # placeholder.dataframe(grid_table)
     
@@ -107,7 +110,8 @@ with placeholder:
     enable_enterprise_modules=True,
     height=350, 
     width='100%',
-    reload_data=True
+    reload_data=True, 
+    key=4
     ) 
         # placeholder.dataframe(grid_table)
     
@@ -128,7 +132,8 @@ with placeholder:
     enable_enterprise_modules=True,
     height=350, 
     width='100%',
-    reload_data=True
+    reload_data=True,
+    key = 5
     )   
         # placeholder.dataframe(grid_table)
     
@@ -148,7 +153,8 @@ with placeholder:
     enable_enterprise_modules=True,
     height=350, 
     width='100%',
-    reload_data=True
+    reload_data=True,
+    key = 6
     )   
         # placeholder.dataframe(grid_table)
     
@@ -168,7 +174,8 @@ with placeholder:
     enable_enterprise_modules=True,
     height=350, 
     width='100%',
-    reload_data=True
+    reload_data=True,
+    key =7
     ) 
         # placeholder.dataframe(grid_table)
     
