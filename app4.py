@@ -41,7 +41,7 @@ with placeholder:
         AgGrid(df,
     gridOptions=gridOptions,
     data_return_mode='AS_INPUT', 
-    update_mode='MANUAL', 
+    update_mode='NO_UPDATE', 
     fit_columns_on_grid_load=False,
     theme='blue', #Add theme color to the table
     enable_enterprise_modules=True,
@@ -60,7 +60,7 @@ with placeholder:
         AgGrid(df,
     gridOptions=gridOptions,
     data_return_mode='AS_INPUT', 
-    update_mode='MANUAL', 
+    update_mode='NO_UPDATE', 
     fit_columns_on_grid_load=False,
     theme='blue', #Add theme color to the table
     enable_enterprise_modules=True,
@@ -79,7 +79,7 @@ with placeholder:
         AgGrid(df,
     gridOptions=gridOptions,
     data_return_mode='AS_INPUT', 
-    update_mode='MANUAL', 
+    update_mode='NO_UPDATE', 
     fit_columns_on_grid_load=False,
     theme='blue', #Add theme color to the table
     enable_enterprise_modules=True,
@@ -101,7 +101,7 @@ with placeholder:
         AgGrid(df,
     gridOptions=gridOptions,
     data_return_mode='AS_INPUT', 
-    update_mode='MANUAL', 
+    update_mode='NO_UPDATE', 
     fit_columns_on_grid_load=False,
     theme='blue', #Add theme color to the table
     enable_enterprise_modules=True,
@@ -122,7 +122,7 @@ with placeholder:
         AgGrid(df,
     gridOptions=gridOptions,
     data_return_mode='AS_INPUT', 
-    update_mode='MANUAL', 
+    update_mode='NO_UPDATE', 
     fit_columns_on_grid_load=False,
     theme='blue', #Add theme color to the table
     enable_enterprise_modules=True,
@@ -142,7 +142,7 @@ with placeholder:
         AgGrid(df,
     gridOptions=gridOptions,
     data_return_mode='AS_INPUT', 
-    update_mode='MANUAL', 
+    update_mode='NO_UPDATE', 
     fit_columns_on_grid_load=False,
     theme='blue', #Add theme color to the table
     enable_enterprise_modules=True,
@@ -162,7 +162,7 @@ with placeholder:
         AgGrid(df,
     gridOptions=gridOptions,
     data_return_mode='AS_INPUT', 
-    update_mode='MANUAL', 
+    update_mode='NO_UPDATE', 
     fit_columns_on_grid_load=False,
     theme='blue', #Add theme color to the table
     enable_enterprise_modules=True,
@@ -182,7 +182,7 @@ with placeholder:
 #         AgGrid(df,
 #     gridOptions=gridOptions,
 #     data_return_mode='AS_INPUT', 
-#     update_mode='MANUAL', 
+#     update_mode='NO_UPDATE', 
 #     fit_columns_on_grid_load=False,
 #     theme='blue', #Add theme color to the table
 #     enable_enterprise_modules=True,
