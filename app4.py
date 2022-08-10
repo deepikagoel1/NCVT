@@ -49,6 +49,25 @@ with placeholder:
     width='100%',
     reload_data=True
     ) 
+        
+trades_names = list(df['Trade_Name'].unique())
+trade_name = st.sidebar.multiselect("Trade Name",options = trades_names)
+
+with placeholder:
+    if state:
+        df = df[df['Trade_Name'].isin(trade_name)] 
+        # placeholder.dataframe(df.reset_index())
+        AgGrid(df,
+    gridOptions=gridOptions,
+    data_return_mode='AS_INPUT', 
+    update_mode='VALUE_CHANGED', 
+    fit_columns_on_grid_load=False,
+    theme='blue', #Add theme color to the table
+    enable_enterprise_modules=True,
+    height=350, 
+    width='100%',
+    reload_data=True
+    ) 
 
 districts = list(df['District_Name'].unique())
 district = st.sidebar.multiselect("District",options = districts)
