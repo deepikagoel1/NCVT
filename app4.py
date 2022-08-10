@@ -172,24 +172,24 @@ with placeholder:
     ) 
         # placeholder.dataframe(grid_table)
     
-iti_nstis = list(df['Details'].unique())
-iti_nsti = st.sidebar.multiselect('ITI/NSTI',options = iti_nstis)
+# iti_nstis = list(df['Details'].unique())
+# iti_nsti = st.sidebar.multiselect('ITI/NSTI',options = iti_nstis)
 
-with placeholder:
-    if iti_nsti:
-        df = df[df['Details'].isin(iti_nsti)]
-        # placeholder.dataframe(df.reset_index())
-        AgGrid(df,
-    gridOptions=gridOptions,
-    data_return_mode='AS_INPUT', 
-    update_mode='VALUE_CHANGED', 
-    fit_columns_on_grid_load=False,
-    theme='blue', #Add theme color to the table
-    enable_enterprise_modules=True,
-    height=350, 
-    width='100%',
-    reload_data=True
-    )  
+# with placeholder:
+#     if iti_nsti:
+#         df = df[df['Details'].isin(iti_nsti)]
+#         # placeholder.dataframe(df.reset_index())
+#         AgGrid(df,
+#     gridOptions=gridOptions,
+#     data_return_mode='AS_INPUT', 
+#     update_mode='VALUE_CHANGED', 
+#     fit_columns_on_grid_load=False,
+#     theme='blue', #Add theme color to the table
+#     enable_enterprise_modules=True,
+#     height=350, 
+#     width='100%',
+#     reload_data=True
+#     )  
         # placeholder.dataframe(grid_table)
     
 total_seats = int(df["Totalseats"].sum())
