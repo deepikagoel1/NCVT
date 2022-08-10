@@ -257,7 +257,7 @@ units_available = int(df["UnitsAvailable"].sum())
 admissions = int(df["Admissions"].sum())
 num_itis = int(df['ITI_Name'].nunique())
 num_trades = int(df['Trade_Name'].nunique())
-women_itis = int(df['Women_ITIs'].nunique())
+women_iti = int(df['ITI_Women'].nunique())
 
 
 with cols[0]:
@@ -442,7 +442,7 @@ with cols[1]:
     iconname = "fas fa-asterisk"
     sline = "Number of Women ITI"
     # lnk = '<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">'
-    i = f"{women_itis}"
+    i = f"{women_iti}"
 
     htmlstr = f"""<p style='background-color: rgb({wch_colour_box[0]}, 
                                               {wch_colour_box[1]}, 
