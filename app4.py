@@ -29,9 +29,9 @@ gridOptions = gb.build()
 
 cols = st.columns([.333, .333, .333])
 
-option2 = st.selectbox(
-     'How many rows you would like to display',
-     ('10', '50', '100'))
+# option2 = st.selectbox(
+#      'How many rows you would like to display',
+#      ('10', '50', '100'))
 
 placeholder = st.empty()    
 
