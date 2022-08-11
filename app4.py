@@ -8,7 +8,7 @@ from st_aggrid import GridOptionsBuilder, AgGrid, GridUpdateMode, DataReturnMode
 
 def data_upload():
     
-    df = pd.read_csv(r'C:\Users\goeld\Downloads\NCVT_MIS_DASH\iti_trades.csv')
+    df = pd.read_csv(r'iti_trades.csv')
     return df
 
 st.set_page_config(
@@ -29,6 +29,9 @@ gridOptions = gb.build()
 
 cols = st.columns([.333, .333, .333])
 
+option2 = st.selectbox(
+     'How many rows you would like to display',
+     ('10', '50', '100'))
 
 placeholder = st.empty()    
 
