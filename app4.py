@@ -29,9 +29,10 @@ gridOptions = gb.build()
 
 cols = st.columns([.333, .333, .333])
 
-# option2 = st.selectbox(
-#      'How many rows you would like to display',
-#      ('10', '50', '100'))
+option2 = st.selectbox(
+     'How many rows you would like to display',
+     ('10', '50', '100'))
+
 
 placeholder = st.empty()    
 
@@ -41,20 +42,47 @@ st.write('Trade Name selected as', trade_name)
 
 with placeholder:
     if trade_name:
-        df = df[df['Trade_Name'].isin(trade_name)] 
-        # placeholder.dataframe(df.reset_index())
-        AgGrid(df,
-    gridOptions=gridOptions,
-    data_return_mode='AS_INPUT', 
-    update_mode='SELECTION_CHANGED', 
-    fit_columns_on_grid_load=False,
-    theme='blue', #Add theme color to the table
-    enable_enterprise_modules=True,
-    height=350, 
-    width='100%',
-    reload_data=True,
-    key = 1
-    ) 
+        df = df[df['Trade_Name'].isin(trade_name)]
+        if option2 == '10': 
+            AgGrid(df.head(10),
+            gridOptions=gridOptions,
+            data_return_mode='AS_INPUT', 
+            update_mode='SELECTION_CHANGED', 
+            fit_columns_on_grid_load=False,
+            theme='blue', #Add theme color to the table
+            enable_enterprise_modules=True,
+            height=350, 
+            width='100%',
+            reload_data=True,
+            key = 1
+            )
+        elif option2 == '50':
+            AgGrid(df.head(50),
+            gridOptions=gridOptions,
+            data_return_mode='AS_INPUT', 
+            update_mode='SELECTION_CHANGED', 
+            fit_columns_on_grid_load=False,
+            theme='blue', #Add theme color to the table
+            enable_enterprise_modules=True,
+            height=350, 
+            width='100%',
+            reload_data=True,
+            key = 1
+            )
+        elif option2 == '100':
+            AgGrid(df.head(100),
+            gridOptions=gridOptions,
+            data_return_mode='AS_INPUT', 
+            update_mode='SELECTION_CHANGED', 
+            fit_columns_on_grid_load=False,
+            theme='blue', #Add theme color to the table
+            enable_enterprise_modules=True,
+            height=350, 
+            width='100%',
+            reload_data=True,
+            key = 1
+            )
+             
         
 sector_names = list(df['Sector_Name'].unique())
 sector_name = st.sidebar.multiselect("Sector Name",options = sector_names, key = 2)
@@ -64,18 +92,45 @@ with placeholder:
     if sector_name:
         df = df[df['Sector_Name'].isin(sector_name)] 
         # placeholder.dataframe(df.reset_index())
-        AgGrid(df,
-    gridOptions=gridOptions,
-    data_return_mode='AS_INPUT', 
-    update_mode='SELECTION_CHANGED', 
-    fit_columns_on_grid_load=False,
-    theme='blue', #Add theme color to the table
-    enable_enterprise_modules=True,
-    height=350, 
-    width='100%',
-    reload_data=True,
-    key = 2
-    ) 
+        if option2 == '10': 
+            AgGrid(df.head(10),
+            gridOptions=gridOptions,
+            data_return_mode='AS_INPUT', 
+            update_mode='SELECTION_CHANGED', 
+            fit_columns_on_grid_load=False,
+            theme='blue', #Add theme color to the table
+            enable_enterprise_modules=True,
+            height=350, 
+            width='100%',
+            reload_data=True,
+            key = 2
+            )
+        elif option2 == '50':
+            AgGrid(df.head(50),
+            gridOptions=gridOptions,
+            data_return_mode='AS_INPUT', 
+            update_mode='SELECTION_CHANGED', 
+            fit_columns_on_grid_load=False,
+            theme='blue', #Add theme color to the table
+            enable_enterprise_modules=True,
+            height=350, 
+            width='100%',
+            reload_data=True,
+            key = 2
+            )
+        elif option2 == '100':
+            AgGrid(df.head(100),
+            gridOptions=gridOptions,
+            data_return_mode='AS_INPUT', 
+            update_mode='SELECTION_CHANGED', 
+            fit_columns_on_grid_load=False,
+            theme='blue', #Add theme color to the table
+            enable_enterprise_modules=True,
+            height=350, 
+            width='100%',
+            reload_data=True,
+            key = 2
+            )
         
 trade_types = list(df['Trade_Type'].unique())
 trade_type = st.sidebar.multiselect("Trade Type",options = trade_types, key = 3)
@@ -85,18 +140,45 @@ with placeholder:
     if trade_type:
         df = df[df['Trade_Type'].isin(trade_type)] 
         # placeholder.dataframe(df.reset_index())
-        AgGrid(df,
-    gridOptions=gridOptions,
-    data_return_mode='AS_INPUT', 
-    update_mode='SELECTION_CHANGED', 
-    fit_columns_on_grid_load=False,
-    theme='blue', #Add theme color to the table
-    enable_enterprise_modules=True,
-    height=350, 
-    width='100%',
-    reload_data=True,
-    key = 3
-    ) 
+        if option2 == '10': 
+            AgGrid(df.head(10),
+            gridOptions=gridOptions,
+            data_return_mode='AS_INPUT', 
+            update_mode='SELECTION_CHANGED', 
+            fit_columns_on_grid_load=False,
+            theme='blue', #Add theme color to the table
+            enable_enterprise_modules=True,
+            height=350, 
+            width='100%',
+            reload_data=True,
+            key = 3
+            )
+        elif option2 == '50':
+            AgGrid(df.head(50),
+            gridOptions=gridOptions,
+            data_return_mode='AS_INPUT', 
+            update_mode='SELECTION_CHANGED', 
+            fit_columns_on_grid_load=False,
+            theme='blue', #Add theme color to the table
+            enable_enterprise_modules=True,
+            height=350, 
+            width='100%',
+            reload_data=True,
+            key = 3
+            )
+        elif option2 == '100':
+            AgGrid(df.head(100),
+            gridOptions=gridOptions,
+            data_return_mode='AS_INPUT', 
+            update_mode='SELECTION_CHANGED', 
+            fit_columns_on_grid_load=False,
+            theme='blue', #Add theme color to the table
+            enable_enterprise_modules=True,
+            height=350, 
+            width='100%',
+            reload_data=True,
+            key = 3
+            )
 
 
 
@@ -107,18 +189,45 @@ with placeholder:
     if state:
         df = df[df['State_Name'].isin(state)] 
         # placeholder.dataframe(df.reset_index())
-        AgGrid(df,
-    gridOptions=gridOptions,
-    data_return_mode='AS_INPUT', 
-    update_mode='SELECTION_CHANGED', 
-    fit_columns_on_grid_load=False,
-    theme='blue', #Add theme color to the table
-    enable_enterprise_modules=True,
-    height=350, 
-    width='100%',
-    reload_data=True,
-    key = 4
-    ) 
+        if option2 == '10': 
+            AgGrid(df.head(10),
+            gridOptions=gridOptions,
+            data_return_mode='AS_INPUT', 
+            update_mode='SELECTION_CHANGED', 
+            fit_columns_on_grid_load=False,
+            theme='blue', #Add theme color to the table
+            enable_enterprise_modules=True,
+            height=350, 
+            width='100%',
+            reload_data=True,
+            key = 4
+            )
+        elif option2 == '50':
+            AgGrid(df.head(50),
+            gridOptions=gridOptions,
+            data_return_mode='AS_INPUT', 
+            update_mode='SELECTION_CHANGED', 
+            fit_columns_on_grid_load=False,
+            theme='blue', #Add theme color to the table
+            enable_enterprise_modules=True,
+            height=350, 
+            width='100%',
+            reload_data=True,
+            key = 4
+            )
+        elif option2 == '100':
+            AgGrid(df.head(100),
+            gridOptions=gridOptions,
+            data_return_mode='AS_INPUT', 
+            update_mode='SELECTION_CHANGED', 
+            fit_columns_on_grid_load=False,
+            theme='blue', #Add theme color to the table
+            enable_enterprise_modules=True,
+            height=350, 
+            width='100%',
+            reload_data=True,
+            key = 4
+            )
     
         
 
@@ -129,18 +238,45 @@ with placeholder:
     if district:
         df = df[df['District_Name'].isin(district)]
         # placeholder.dataframe(df.reset_index())
-        AgGrid(df,
-    gridOptions=gridOptions,
-    data_return_mode='AS_INPUT', 
-    update_mode='SELECTION_CHANGED', 
-    fit_columns_on_grid_load=False,
-    theme='blue', #Add theme color to the table
-    enable_enterprise_modules=True,
-    height=350, 
-    width='100%',
-    reload_data=True,
-    key = 5
-    )    
+        if option2 == '10': 
+            AgGrid(df.head(10),
+            gridOptions=gridOptions,
+            data_return_mode='AS_INPUT', 
+            update_mode='SELECTION_CHANGED', 
+            fit_columns_on_grid_load=False,
+            theme='blue', #Add theme color to the table
+            enable_enterprise_modules=True,
+            height=350, 
+            width='100%',
+            reload_data=True,
+            key = 5
+            )
+        elif option2 == '50':
+            AgGrid(df.head(50),
+            gridOptions=gridOptions,
+            data_return_mode='AS_INPUT', 
+            update_mode='SELECTION_CHANGED', 
+            fit_columns_on_grid_load=False,
+            theme='blue', #Add theme color to the table
+            enable_enterprise_modules=True,
+            height=350, 
+            width='100%',
+            reload_data=True,
+            key = 5
+            )
+        elif option2 == '100':
+            AgGrid(df.head(100),
+            gridOptions=gridOptions,
+            data_return_mode='AS_INPUT', 
+            update_mode='SELECTION_CHANGED', 
+            fit_columns_on_grid_load=False,
+            theme='blue', #Add theme color to the table
+            enable_enterprise_modules=True,
+            height=350, 
+            width='100%',
+            reload_data=True,
+            key = 5
+            )  
         # placeholder.dataframe(grid_table)
     
 durations = list(df['Course_Duration'].unique())
@@ -152,18 +288,45 @@ with placeholder:
         
         df = df[df['Course_Duration'].isin(duration)]
         # placeholder.dataframe(df.reset_index())
-        AgGrid(df,
-    gridOptions=gridOptions,
-    data_return_mode='AS_INPUT', 
-    update_mode='SELECTION_CHANGED', 
-    fit_columns_on_grid_load=False,
-    theme='blue', #Add theme color to the table
-    enable_enterprise_modules=True,
-    height=350, 
-    width='100%',
-    reload_data=True, 
-    key=6
-    ) 
+        if option2 == '10': 
+            AgGrid(df.head(10),
+            gridOptions=gridOptions,
+            data_return_mode='AS_INPUT', 
+            update_mode='SELECTION_CHANGED', 
+            fit_columns_on_grid_load=False,
+            theme='blue', #Add theme color to the table
+            enable_enterprise_modules=True,
+            height=350, 
+            width='100%',
+            reload_data=True,
+            key = 6
+            )
+        elif option2 == '50':
+            AgGrid(df.head(50),
+            gridOptions=gridOptions,
+            data_return_mode='AS_INPUT', 
+            update_mode='SELECTION_CHANGED', 
+            fit_columns_on_grid_load=False,
+            theme='blue', #Add theme color to the table
+            enable_enterprise_modules=True,
+            height=350, 
+            width='100%',
+            reload_data=True,
+            key = 6
+            )
+        elif option2 == '100':
+            AgGrid(df.head(100),
+            gridOptions=gridOptions,
+            data_return_mode='AS_INPUT', 
+            update_mode='SELECTION_CHANGED', 
+            fit_columns_on_grid_load=False,
+            theme='blue', #Add theme color to the table
+            enable_enterprise_modules=True,
+            height=350, 
+            width='100%',
+            reload_data=True,
+            key = 6
+            )
         # placeholder.dataframe(grid_table)
     
 years = list(df['Year'].unique())
@@ -175,18 +338,45 @@ with placeholder:
     if year:
         df = df[df['Year'].isin(year)]
         # placeholder.dataframe(df.reset_index())
-        AgGrid(df,
-    gridOptions=gridOptions,
-    data_return_mode='AS_INPUT', 
-    update_mode='SELECTION_CHANGED', 
-    fit_columns_on_grid_load=False,
-    theme='blue', #Add theme color to the table
-    enable_enterprise_modules=True,
-    height=350, 
-    width='100%',
-    reload_data=True,
-    key = 7
-    )   
+        if option2 == '10': 
+            AgGrid(df.head(10),
+            gridOptions=gridOptions,
+            data_return_mode='AS_INPUT', 
+            update_mode='SELECTION_CHANGED', 
+            fit_columns_on_grid_load=False,
+            theme='blue', #Add theme color to the table
+            enable_enterprise_modules=True,
+            height=350, 
+            width='100%',
+            reload_data=True,
+            key = 7
+            )
+        elif option2 == '50':
+            AgGrid(df.head(50),
+            gridOptions=gridOptions,
+            data_return_mode='AS_INPUT', 
+            update_mode='SELECTION_CHANGED', 
+            fit_columns_on_grid_load=False,
+            theme='blue', #Add theme color to the table
+            enable_enterprise_modules=True,
+            height=350, 
+            width='100%',
+            reload_data=True,
+            key = 7
+            )
+        elif option2 == '100':
+            AgGrid(df.head(100),
+            gridOptions=gridOptions,
+            data_return_mode='AS_INPUT', 
+            update_mode='SELECTION_CHANGED', 
+            fit_columns_on_grid_load=False,
+            theme='blue', #Add theme color to the table
+            enable_enterprise_modules=True,
+            height=350, 
+            width='100%',
+            reload_data=True,
+            key = 7
+            ) 
         # placeholder.dataframe(grid_table)
     
 iti_names = list(df['ITI_Name'].unique())
@@ -198,18 +388,45 @@ with placeholder:
     if iti_name:
         df = df[df['ITI_Name'].isin(iti_name)]
         # placeholder.dataframe(df.reset_index())
-        AgGrid(df,
-    gridOptions=gridOptions,
-    data_return_mode='AS_INPUT', 
-    update_mode='SELECTION_CHANGED', 
-    fit_columns_on_grid_load=False,
-    theme='blue', #Add theme color to the table
-    enable_enterprise_modules=True,
-    height=350, 
-    width='100%',
-    reload_data=True,
-    key = 8
-    )   
+        if option2 == '10': 
+            AgGrid(df.head(10),
+            gridOptions=gridOptions,
+            data_return_mode='AS_INPUT', 
+            update_mode='SELECTION_CHANGED', 
+            fit_columns_on_grid_load=False,
+            theme='blue', #Add theme color to the table
+            enable_enterprise_modules=True,
+            height=350, 
+            width='100%',
+            reload_data=True,
+            key = 8
+            )
+        elif option2 == '50':
+            AgGrid(df.head(50),
+            gridOptions=gridOptions,
+            data_return_mode='AS_INPUT', 
+            update_mode='SELECTION_CHANGED', 
+            fit_columns_on_grid_load=False,
+            theme='blue', #Add theme color to the table
+            enable_enterprise_modules=True,
+            height=350, 
+            width='100%',
+            reload_data=True,
+            key = 8
+            )
+        elif option2 == '100':
+            AgGrid(df.head(100),
+            gridOptions=gridOptions,
+            data_return_mode='AS_INPUT', 
+            update_mode='SELECTION_CHANGED', 
+            fit_columns_on_grid_load=False,
+            theme='blue', #Add theme color to the table
+            enable_enterprise_modules=True,
+            height=350, 
+            width='100%',
+            reload_data=True,
+            key = 8
+            )   
         # placeholder.dataframe(grid_table)
     
 iti_categories = list(df['ITI_Category'].unique())
@@ -221,18 +438,45 @@ with placeholder:
     if iti_category:
         df = df[df['ITI_Category'].isin(iti_category)]
         # placeholder.dataframe(df.reset_index())
-        AgGrid(df,
-    gridOptions=gridOptions,
-    data_return_mode='AS_INPUT', 
-    update_mode='SELECTION_CHANGED', 
-    fit_columns_on_grid_load=False,
-    theme='blue', #Add theme color to the table
-    enable_enterprise_modules=True,
-    height=350, 
-    width='100%',
-    reload_data=True,
-    key =9
-    ) 
+        if option2 == '10': 
+            AgGrid(df.head(10),
+            gridOptions=gridOptions,
+            data_return_mode='AS_INPUT', 
+            update_mode='SELECTION_CHANGED', 
+            fit_columns_on_grid_load=False,
+            theme='blue', #Add theme color to the table
+            enable_enterprise_modules=True,
+            height=350, 
+            width='100%',
+            reload_data=True,
+            key = 9
+            )
+        elif option2 == '50':
+            AgGrid(df.head(50),
+            gridOptions=gridOptions,
+            data_return_mode='AS_INPUT', 
+            update_mode='SELECTION_CHANGED', 
+            fit_columns_on_grid_load=False,
+            theme='blue', #Add theme color to the table
+            enable_enterprise_modules=True,
+            height=350, 
+            width='100%',
+            reload_data=True,
+            key = 9
+            )
+        elif option2 == '100':
+            AgGrid(df.head(100),
+            gridOptions=gridOptions,
+            data_return_mode='AS_INPUT', 
+            update_mode='SELECTION_CHANGED', 
+            fit_columns_on_grid_load=False,
+            theme='blue', #Add theme color to the table
+            enable_enterprise_modules=True,
+            height=350, 
+            width='100%',
+            reload_data=True,
+            key = 9
+            ) 
         # placeholder.dataframe(grid_table)
     
 # iti_nstis = list(df['Details'].unique())
@@ -263,6 +507,7 @@ admissions = int(df["Admissions"].sum())
 num_itis = int(df['ITI_Name'].nunique())
 num_trades = int(df['Trade_Name'].nunique())
 women_iti = int(df['ITI_Women'].nunique())
+    
 
 
 with cols[0]:
@@ -499,7 +744,10 @@ with cols[2]:
                         margin-top: 0;'>{sline}</style></span></p>"""
 
     st.markdown(htmlstr, unsafe_allow_html=True)
-
+    
+if admissions > 500:
+    st.subheader('ITI Names')
+    st.write(df['ITI_Name'])
 
 def convert_df(df):
        return df.to_csv().encode('utf-8')
